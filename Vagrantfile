@@ -1,6 +1,8 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
+# box find url change source to the new : https://app.vagrantup.com/bento
+
 # Vagrantfile API/syntax version. Don't touch unless you know what you're doing!
 VAGRANTFILE_API_VERSION = "2"
 
@@ -9,7 +11,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       vb.memory = 1024
   end
   config.vm.define :master do |master_config|
-    master_config.vm.box = "ubuntu/trusty64"
+    master_config.vm.box = "bento/fedora-26"
+    #master_config.vm.box_url = "https://app.vagrantup.com/bento"
     master_config.vm.host_name = 'saltmaster.local'
     master_config.vm.network "private_network", ip: "192.168.50.10"
     master_config.vm.synced_folder "saltstack/salt/", "/srv/salt"
@@ -36,7 +39,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   end
 
   config.vm.define :minion1 do |minion_config|
-    minion_config.vm.box = "ubuntu/trusty64"
+    minion_config.vm.box = "bento/fedora-26"
+    #minion_config.vm.box_url = "https://app.vagrantup.com/bento"
     minion_config.vm.host_name = 'saltminion1.local'
     minion_config.vm.network "private_network", ip: "192.168.50.11"
 
@@ -52,11 +56,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   end
 
   config.vm.define :minion2 do |minion_config|
-    minion_config.vm.box = "ubuntu/trusty64"
+    minion_config.vm.box = "bento/fedora-26"
+    #minion_config.vm.box_url = "https://app.vagrantup.com/bento"
     # The following line can be uncommented to use Centos
     # instead of Ubuntu.
     # Comment out the above line as well
-    #minion_config.vm.box = "bento/centos-7.2"
+    #minion_config.vm.box = "bento/fedora-26"
     minion_config.vm.host_name = 'saltminion2.local'
     minion_config.vm.network "private_network", ip: "192.168.50.12"
 

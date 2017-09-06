@@ -1,3 +1,5 @@
+fedora version
+
 =================
 Salt Vagrant Demo
 =================
